@@ -4,7 +4,7 @@ import Events from './pages/Events';
 import Home from './pages/Home';
 import Photos from './pages/Photos';
 import Resources from './pages/Resources';
-import { Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 
 class Routes extends React.Component {
   render() {

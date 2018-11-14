@@ -1,3 +1,73 @@
+This is a default website I made for our GDG Cloud Vancouver Meetup group.
+
+This application uses the following in Firebase:
+
+- Hosted on Firebase Hosting
+- A Firebase Function which fetches your upcoming events. (This keeps your API key from the public in your frontend code)
+
+Others used:
+
+- Typescript
+- React
+- Material-UI
+
+### Basic dev setup
+
+cd into the projects directory and run:
+
+`npm install`
+
+'npm build'
+
+`npm install -g firebase-tools`
+
+`firebase login`
+
+`firebase init`
+
+Note: Services to enable in Firebase when running firebase init are:
+
+- Firebase Functions
+- Firebase Hosting
+
+Are you ready to proceed?
+
+`y`
+
+Select your project
+
+What do you want to use as your public directory? (public)
+
+`build`
+
+Then hit enter
+
+Configure as a single-page app (rewrite all urls to /index.html)?
+
+`y`
+
+File build/index.html already exists. Overwrite?
+
+`n`
+
+**Important** inside the Firebase Function you will see a environment variable called `functions.config().meetup.key`
+To set this environment variable, in the root of this project you must run this command with your Meetup API Key. (You can get your key here https://secure.meetup.com/meetup_api/key/)
+
+`firebase functions:config:set meetup.key="INSERT_YOUR_MEETUP_KEY_HERE"`
+
+To change the Meetup Group events that get displayed, change the "meetupGroupName" to your Meetup name inside the `/functions/index.ts` file
+
+You are now ready to deploy with:
+
+`firebase deploy`
+
+Or if you want to test it locally
+**Make sure you run npm run build if you change any code**
+
+`firebase serve`
+
+# Below is the basic documentation for create-react-app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

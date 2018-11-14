@@ -5,10 +5,14 @@ import Spacer from '../../components/Spacer/Spacer';
 import { Link } from 'react-router-dom';
 import {
   createStyles,
+  CardMedia,
   Typography,
   withStyles,
   Button,
   Theme,
+  CardContent,
+  Card,
+  CardActions,
 } from '@material-ui/core';
 
 interface Props {
@@ -17,6 +21,7 @@ interface Props {
     bannerImage: string;
     callToAction: string;
     pageContainer: string;
+    cardMedia: string;
   };
 }
 
@@ -39,6 +44,10 @@ const styles = (theme: Theme) =>
     },
     pageContainer: {
       padding: theme.spacing.unit * 3,
+    },
+    cardMedia: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
     },
   });
 
@@ -72,22 +81,23 @@ class Progress extends React.Component<Props, State> {
           </div>
         </div>
 
-        <Page maxWidth={620}>
-          <div className={classes.pageContainer}>
-            <Typography variant="h5" color="textPrimary">
-              GDGs are local groups of developers who are specifically
-              interested in Google products and APIs
-            </Typography>
-          </div>
-        </Page>
-
         <Spacer height={120} />
 
         <Hero
           backdrop={true}
           img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2Fgdg.jpg?alt=media&token=4df64f32-4373-4b82-864f-0fe4404216dc"
         >
-          <div>
+          <div style={{ textAlign: 'center' }}>
+            <Typography
+              variant="h4"
+              style={{
+                color: 'white',
+                textShadow: '0px 0px 24px black, 0px 0px 12px black',
+              }}
+            >
+              GDGs are local groups of developers who are specifically
+              interested in Google products and APIs
+            </Typography>
             <Button
               variant="contained"
               color="primary"
@@ -99,38 +109,59 @@ class Progress extends React.Component<Props, State> {
           </div>
         </Hero>
 
-        <Spacer height={120} />
+        <Spacer height={240} />
 
-        <Page maxWidth={620}>
-          <div className={classes.pageContainer}>
-            <Typography variant="h5" color="textPrimary">
-              We host a variety of technical activities for developers - from
-              just a few people getting together to watch our latest videos, to
-              large gatherings with demos and tech talks, to hackathons.
-            </Typography>
-          </div>
-        </Page>
-
-        <Spacer height={120} />
-
-        <Hero
-          backdrop={true}
-          img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2Fteam.jpg?alt=media&token=31f2579d-3f11-401c-9b57-1fc64e9176c4"
-        >
+        <div style={{ textAlign: 'center' }}>
+          <Typography color="textPrimary" variant="h5">
+            Interested in giving a talk or running a workshop?
+          </Typography>
           <div>
             <Button
               variant="contained"
               color="primary"
               className={classes.callToAction}
-              component={(props: any) => <Link {...props} to={'/about'} />}
+              component={props => (
+                <a
+                  {...props}
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdNGi_yqbqF20cKjrg3KIymtnwdl4zh5etsNDVOE7adZxjiQQ/viewform?usp=sf_link"
+                />
+              )}
             >
-              About us
+              Contact Us
             </Button>
           </div>
-        </Hero>
+        </div>
 
-        <Spacer height={120} />
+        <Spacer height={200} />
 
+        <Page maxWidth={420}>
+          <Card>
+            <CardMedia
+              image="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/people%2Forgs_vol2.jpg?alt=media&token=6456059d-4c86-4fdf-beaf-da089ad89490"
+              title="Organizers and Volunteers"
+              className={classes.cardMedia}
+            />
+            <CardContent>
+              <Typography variant="h4" color="textPrimary">
+                The team
+              </Typography>
+              We host a variety of technical activities for developers - from
+              just a few people getting together to watch our latest videos, to
+              large gatherings with demos and tech talks, to hackathons.
+            </CardContent>
+            <CardActions>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.callToAction}
+                component={(props: any) => <Link {...props} to={'/about'} />}
+              >
+                About us
+              </Button>
+            </CardActions>
+          </Card>
+        </Page>
+        <Spacer height={240} />
         <div style={{ textAlign: 'center' }}>
           <Typography color="textPrimary" variant="h5">
             Needs some help or wish to see videos from our previous events?
@@ -146,15 +177,14 @@ class Progress extends React.Component<Props, State> {
             </Button>
           </div>
         </div>
-        <Spacer height={120} />
-
+        <Spacer height={240} />
         <Hero
           backdrop={true}
           img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2FIMG_20181020_112843-ANIMATION.gif?alt=media&token=11faf010-6d5c-447f-a8f7-b8a7ff9c9453"
         >
           <div style={{ textAlign: 'center', marginTop: '-180px' }}>
             <Typography style={{ color: 'white' }} variant="h5">
-              We also have a Women Techmakers group here in Vancouver
+              <b>We also have a Women Techmakers group here in Vancouver</b>
             </Typography>
             <div>
               <Button
