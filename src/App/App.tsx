@@ -53,7 +53,8 @@ class App extends React.Component<Props, State> {
             width: '100%',
             maxWidth: '100%',
             paddingBottom: 120,
-            overflow: 'auto',
+            overflowY: 'auto',
+            overflowX: 'hidden',
           }}
         >
           <Routes />

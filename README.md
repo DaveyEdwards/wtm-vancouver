@@ -1,11 +1,15 @@
+# A website template for Meetup groups
+
 This is a default website I made for our GDG Cloud Vancouver Meetup group.
 
-This application uses the following in Firebase:
+Demo: https://gdgvancouver-e7a28.firebaseapp.com/
+
+### This application uses the following in Firebase:
 
 - Hosted on Firebase Hosting
 - A Firebase Function which fetches your upcoming events. (This keeps your API key from the public in your frontend code)
 
-Others used:
+### Others used:
 
 - Typescript
 - React

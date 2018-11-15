@@ -22,6 +22,7 @@ interface Props {
     cover: string;
     actions: string;
     cardPrimary: string;
+    smallCardCover: string;
   };
 }
 
@@ -55,6 +56,10 @@ const styles = (theme: any) =>
     cover: {
       minWidth: 212,
       height: 256,
+    },
+    smallCardCover: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
     },
     actions: {
       display: 'flex',
@@ -151,20 +156,20 @@ class Progress extends React.Component<Props, State> {
           <Typography variant="body1" color="textPrimary">
             GDG Cloud Vancouver is local community-ran meetup for developers
             interested in resources and technology from Google Developers. We
-            focus majorly on Google Cloud Platform and Open Source technologies
-            that are part of it.
+            focus on Google Cloud Platform and Open Source technologies that are
+            part of it.
           </Typography>
 
           <Spacer height={75} />
 
           <Typography variant="h4" color="textPrimary">
-            <b>Meet the Team:</b>
+            <b>Meet the Organizing Team:</b>
           </Typography>
 
           <Spacer />
 
           {team.map(person => {
-            return (
+            return window.innerWidth > 680 ? (
               <Card key={person.name} className={classes.card}>
                 <div className={classes.cardPrimary}>
                   <CardMedia
@@ -184,6 +189,38 @@ class Progress extends React.Component<Props, State> {
                     </CardContent>
                   </div>
                 </div>
+                <CardActions className={classes.actions}>
+                  {person.actions.map(action => {
+                    return (
+                      <Button
+                        key={action.name}
+                        color="primary"
+                        component={(props: any) => (
+                          <a {...props} target="__blank" href={action.url} />
+                        )}
+                      >
+                        {action.name}
+                      </Button>
+                    );
+                  })}
+                </CardActions>
+              </Card>
+            ) : (
+              <Card style={{ marginBottom: 12 }}>
+                <CardMedia
+                  className={classes.smallCardCover}
+                  image={person.img}
+                  title={person.name}
+                />
+                <CardContent>
+                  <Typography variant="h4" color="textPrimary">
+                    <b>{person.name}</b>
+                  </Typography>
+                  <br />
+                  <Typography variant="body1" color="textPrimary">
+                    {person.description}
+                  </Typography>
+                </CardContent>
                 <CardActions className={classes.actions}>
                   {person.actions.map(action => {
                     return (

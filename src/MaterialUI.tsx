@@ -18,7 +18,36 @@ interface Props {
   lightTheme: boolean;
 }
 
-const theme = (theme: any) => createMuiTheme(theme);
+const theme = (theme: any) =>
+  createMuiTheme({
+    ...theme,
+    typography: {
+      useNextVariants: true,
+      body1: {
+        fontSize: 18,
+        color: 'rgba(0, 0, 0, 0.83)',
+      },
+      h1: {
+        color: 'rgba(0, 0, 0, 0.83)',
+        fontSize: '5rem',
+      },
+      h2: {
+        color: 'rgba(0, 0, 0, 0.83)',
+      },
+      h3: {
+        color: 'rgba(0, 0, 0, 0.83)',
+      },
+      h4: {
+        color: 'rgba(0, 0, 0, 0.83)',
+      },
+      h5: {
+        color: 'rgba(0, 0, 0, 0.83)',
+      },
+      h6: {
+        color: 'rgba(0, 0, 0, 0.83)',
+      },
+    },
+  });
 
 const styles = () =>
   createStyles({
@@ -53,31 +82,6 @@ class MaterialUI extends React.Component<Props> {
           main: '#EA4335',
         },
         type: lightTheme ? 'light' : 'dark',
-      },
-      typography: {
-        useNextVariants: true,
-        body1: {
-          fontSize: 18,
-          color: 'rgba(0, 0, 0, 0.83)',
-        },
-        h1: {
-          color: 'rgba(0, 0, 0, 0.83)',
-        },
-        h2: {
-          color: 'rgba(0, 0, 0, 0.83)',
-        },
-        h3: {
-          color: 'rgba(0, 0, 0, 0.83)',
-        },
-        h4: {
-          color: 'rgba(0, 0, 0, 0.83)',
-        },
-        h5: {
-          color: 'rgba(0, 0, 0, 0.83)',
-        },
-        h6: {
-          color: 'rgba(0, 0, 0, 0.83)',
-        },
       },
     };
 

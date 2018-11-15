@@ -118,7 +118,10 @@ class Events extends React.Component<Props, State> {
           <Spacer height={124} />
 
           {loading ? (
-            <Progress />
+            <div>
+              <Progress />
+              <Spacer height={240} />
+            </div>
           ) : (
             <Grid container spacing={24}>
               {events.length &&
@@ -158,6 +161,7 @@ class Events extends React.Component<Props, State> {
                         <CardActions>
                           <Button
                             color="primary"
+                            variant="contained"
                             component={(props: any) => (
                               <a
                                 {...props}

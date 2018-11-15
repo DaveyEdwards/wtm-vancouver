@@ -5,23 +5,21 @@ import Spacer from '../../components/Spacer/Spacer';
 import { Link } from 'react-router-dom';
 import {
   createStyles,
-  CardMedia,
   Typography,
   withStyles,
   Button,
   Theme,
-  CardContent,
-  Card,
-  CardActions,
 } from '@material-ui/core';
 
 interface Props {
   classes: {
-    container: string;
+    openingHeroContainer: string;
     bannerImage: string;
     callToAction: string;
     pageContainer: string;
     cardMedia: string;
+    colorBlock: string;
+    centeredTextContainer: string;
   };
 }
 
@@ -29,12 +27,11 @@ interface State {}
 
 const styles = (theme: Theme) =>
   createStyles({
-    container: {
+    openingHeroContainer: {
       textAlign: 'center',
-      margin: '124px 24px',
-      padding: theme.spacing.unit * 3,
-      background: 'white',
-      borderRadius: 12,
+      width: '100%',
+      maxWidth: 400,
+      margin: '0px auto',
     },
     bannerImage: {
       width: '100%',
@@ -49,6 +46,19 @@ const styles = (theme: Theme) =>
       height: 0,
       paddingTop: '56.25%', // 16:9
     },
+    colorBlock: {
+      background: theme.palette.primary.main,
+      height: 600,
+      width: '100%',
+      textAlign: 'center',
+      position: 'relative',
+    },
+    centeredTextContainer: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+    },
   });
 
 class Progress extends React.Component<Props, State> {
@@ -61,125 +71,124 @@ class Progress extends React.Component<Props, State> {
     const { classes } = this.props;
 
     return (
-      <Page disablePadding={true}>
-        <div className={classes.container}>
-          <img src={'/gdgcloudvan.svg'} style={{ maxWidth: '60%' }} />
-          <Typography variant="h5">
-            Enabeling you to build whats next, today.
-          </Typography>
-          <div>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.callToAction}
-              component={(props: any) => (
-                <Link {...props} to={'/upcoming-events'} />
-              )}
-            >
-              Upcoming Events
-            </Button>
-          </div>
-        </div>
-
-        <Spacer height={120} />
-
+      <div>
         <Hero
+          height={'640px'}
           backdrop={true}
-          img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2Fgdg.jpg?alt=media&token=4df64f32-4373-4b82-864f-0fe4404216dc"
+          img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2Fhero.jpg?alt=media&token=d2ba8252-7da2-4cb9-aa4a-42e4c19c017f"
         >
-          <div style={{ textAlign: 'center' }}>
+          <div className={classes.openingHeroContainer}>
+            <img src={'/logo-name.png'} style={{ maxWidth: '100%' }} />
             <Typography
-              variant="h4"
               style={{
                 color: 'white',
                 textShadow: '0px 0px 24px black, 0px 0px 12px black',
               }}
+              variant="h4"
             >
-              GDGs are local groups of developers who are specifically
-              interested in Google products and APIs
+              Enabeling you to build whats next, today.
+            </Typography>
+            <div>
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.callToAction}
+                component={(props: any) => (
+                  <Link {...props} to={'/upcoming-events'} />
+                )}
+              >
+                Upcoming Events
+              </Button>
+            </div>
+          </div>
+        </Hero>
+
+        <Spacer height={120} />
+
+        <Page disablePadding={true}>
+          <div style={{ textAlign: 'center', marginTop: 64 }}>
+            <Typography variant="h4" color="textPrimary">
+              <b>What is GDG?</b>
+            </Typography>
+            <br />
+            <Typography variant="body1" color="textPrimary">
+              Google Developer Groups are local groups of developers who are
+              specifically interested in Google products and APIs.
+              <br />
+              GDG Cloud Vancouver holds events tailored to learning about Google
+              Cloud Platform.
             </Typography>
             <Button
               variant="contained"
               color="primary"
               className={classes.callToAction}
-              component={(props: any) => <Link {...props} to={'/photos'} />}
-            >
-              View Photos
-            </Button>
-          </div>
-        </Hero>
-
-        <Spacer height={240} />
-
-        <div style={{ textAlign: 'center' }}>
-          <Typography color="textPrimary" variant="h5">
-            Interested in giving a talk or running a workshop?
-          </Typography>
-          <div>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.callToAction}
-              component={props => (
+              component={(props: any) => (
                 <a
                   {...props}
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSdNGi_yqbqF20cKjrg3KIymtnwdl4zh5etsNDVOE7adZxjiQQ/viewform?usp=sf_link"
+                  href={'https://developers.google.com/programs/community/gdg/'}
                 />
               )}
             >
-              Contact Us
+              Learn More
             </Button>
+          </div>
+        </Page>
+
+        <Spacer height={182} />
+
+        <Hero
+          backdrop={true}
+          height="580px"
+          img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2Fgdg.jpg?alt=media&token=4df64f32-4373-4b82-864f-0fe4404216dc"
+        />
+
+        <div className={classes.colorBlock}>
+          <div className={classes.centeredTextContainer}>
+            <Typography variant="h5" style={{ color: 'white' }}>
+              Presenting or giving a Workshop sound interesting to you? Get in
+              touch with us!
+            </Typography>
+            <div>
+              <Button
+                variant="contained"
+                color="secondary"
+                className={classes.callToAction}
+                component={props => (
+                  <a
+                    {...props}
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdNGi_yqbqF20cKjrg3KIymtnwdl4zh5etsNDVOE7adZxjiQQ/viewform?usp=sf_link"
+                  />
+                )}
+              >
+                Contact Us
+              </Button>
+            </div>
           </div>
         </div>
 
-        <Spacer height={200} />
-
-        <Page maxWidth={420}>
-          <Card>
-            <CardMedia
-              image="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/people%2Forgs_vol2.jpg?alt=media&token=6456059d-4c86-4fdf-beaf-da089ad89490"
-              title="Organizers and Volunteers"
-              className={classes.cardMedia}
-            />
-            <CardContent>
-              <Typography variant="h4" color="textPrimary">
-                The team
-              </Typography>
-              We host a variety of technical activities for developers - from
-              just a few people getting together to watch our latest videos, to
-              large gatherings with demos and tech talks, to hackathons.
-            </CardContent>
-            <CardActions>
+        <div className={classes.colorBlock} style={{ background: '#DD5044' }}>
+          <div className={classes.centeredTextContainer}>
+            <Typography variant="h5" style={{ color: 'white' }}>
+              Looking for some help or wish to see previous event presentations?
+            </Typography>
+            <div>
               <Button
                 variant="contained"
                 color="primary"
                 className={classes.callToAction}
-                component={(props: any) => <Link {...props} to={'/about'} />}
+                component={(props: any) => (
+                  <Link {...props} to={'/resources'} />
+                )}
               >
-                About us
+                Resources
               </Button>
-            </CardActions>
-          </Card>
-        </Page>
-        <Spacer height={240} />
-        <div style={{ textAlign: 'center' }}>
-          <Typography color="textPrimary" variant="h5">
-            Needs some help or wish to see videos from our previous events?
-          </Typography>
-          <div>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.callToAction}
-              component={(props: any) => <Link {...props} to={'/resources'} />}
-            >
-              Resources
-            </Button>
+            </div>
           </div>
         </div>
-        <Spacer height={240} />
+
         <Hero
           backdrop={true}
+          height={'640px'}
           img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2FIMG_20181020_112843-ANIMATION.gif?alt=media&token=11faf010-6d5c-447f-a8f7-b8a7ff9c9453"
         >
           <div style={{ textAlign: 'center', marginTop: '-180px' }}>
@@ -200,7 +209,7 @@ class Progress extends React.Component<Props, State> {
             </div>
           </div>
         </Hero>
-      </Page>
+      </div>
     );
   }
 }

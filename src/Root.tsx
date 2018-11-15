@@ -18,7 +18,7 @@ class Root extends React.Component<State> {
     // This is primarily here to force a re render due to
     // Firebase hosting not rendering the inital route
     this.setState({
-      lightTheme: lightTheme == 'true' ? true : false,
+      lightTheme: lightTheme === 'false' ? false : true,
     });
   }
 

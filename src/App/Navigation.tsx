@@ -123,7 +123,7 @@ class Navigation extends React.Component<Props, State> {
       {
         type: 'BUTTON',
         icon: 'info',
-        title: 'About',
+        title: 'About Us',
         slug: '/about',
       },
       {
@@ -179,7 +179,11 @@ class Navigation extends React.Component<Props, State> {
                             key={item.title + index}
                             component={(props: any) =>
                               item.slug ? (
-                                <Link {...props} to={item.slug} />
+                                <Link
+                                  {...props}
+                                  onClick={() => handleNavigationToggle()}
+                                  to={item.slug}
+                                />
                               ) : (
                                 <a
                                   {...props}
