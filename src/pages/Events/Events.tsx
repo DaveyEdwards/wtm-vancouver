@@ -1,4 +1,5 @@
 import * as React from 'react';
+import appConfig from '../../appConfig';
 import moment from 'moment';
 import Page from '../../components/Page';
 import Progress from '../../components/Progress';
@@ -65,7 +66,7 @@ const styles = (theme: any) =>
       paddingTop: '56.25%', // 16:9
     },
     cardContent: {
-      height: 240,
+      height: 300,
       flexDirection: 'column',
       display: 'flex',
     },
@@ -81,15 +82,12 @@ class Events extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    fetch(
-      'https://us-central1-gdgvancouver-e7a28.cloudfunctions.net/meetupEventsApi',
-      {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-        },
+    fetch(appConfig.firebaseSettings.meetupCloudFunctionUrl, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
       },
-    )
+    })
       .then((response: any) => response.json())
       .then(res => {
         const events = JSON.parse(res.body);
@@ -124,7 +122,7 @@ class Events extends React.Component<Props, State> {
             </div>
           ) : (
             <Grid container spacing={24}>
-              {events.length &&
+              {events.length ? (
                 events.map(event => {
                   return (
                     <Grid key={event.id} item xs={12} md={6} lg={4}>
@@ -140,7 +138,7 @@ class Events extends React.Component<Props, State> {
                           />
                         </CardActionArea>
                         <CardContent className={classes.cardContent}>
-                          <Typography variant="h4" color="textPrimary">
+                          <Typography variant="h5" color="textPrimary">
                             <b>{event.name}</b>
                           </Typography>
                           <div style={{ flexGrow: 1 }} />
@@ -157,6 +155,7 @@ class Events extends React.Component<Props, State> {
                           <Typography variant="body1" color="textPrimary">
                             {this.formatDate(event.local_date)}
                           </Typography>
+                          <div style={{ flexGrow: 1 }} />
                         </CardContent>
                         <CardActions>
                           <Button
@@ -176,7 +175,12 @@ class Events extends React.Component<Props, State> {
                       </Card>
                     </Grid>
                   );
-                })}
+                })
+              ) : (
+                <Typography variant="h3">
+                  We currently planning our next Meetup, check back soon...
+                </Typography>
+              )}
             </Grid>
           )}
           <Spacer height={124} />
@@ -189,16 +193,13 @@ class Events extends React.Component<Props, State> {
               color="primary"
               variant="contained"
               component={(props: any) => (
-                <a
-                  {...props}
-                  target="__blank"
-                  href="https://www.meetup.com/GDGCloudVancouver/"
-                />
+                <a {...props} target="__blank" href={appConfig.meetupUrl} />
               )}
             >
               Meetup Page
             </Button>
           </div>
+          <Spacer height={124} />
         </div>
       </Page>
     );

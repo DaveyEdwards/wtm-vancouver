@@ -8,7 +8,6 @@ import {
   Typography,
   withStyles,
   CardContent,
-  CardMedia,
   Button,
   Grid,
 } from '@material-ui/core';

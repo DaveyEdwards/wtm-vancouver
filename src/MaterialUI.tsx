@@ -1,4 +1,5 @@
 import * as React from 'react';
+import appConfig from './appConfig';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { createGenerateClassName, Theme } from '@material-ui/core/styles';
 import { JssProvider } from 'react-jss';
@@ -75,12 +76,7 @@ class MaterialUI extends React.Component<Props> {
 
     const appTheme = {
       palette: {
-        primary: {
-          main: '#4285F4',
-        },
-        secondary: {
-          main: '#EA4335',
-        },
+        ...appConfig.palette,
         type: lightTheme ? 'light' : 'dark',
       },
     };

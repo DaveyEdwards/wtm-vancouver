@@ -1,5 +1,6 @@
 import * as React from 'react';
 import AppMenuBar from './AppMenuBar';
+import Footer from '../components/Footer';
 import Navigation from './Navigation';
 import Routes from '../routes';
 
@@ -52,12 +53,12 @@ class App extends React.Component<Props, State> {
             position: 'relative',
             width: '100%',
             maxWidth: '100%',
-            paddingBottom: 120,
             overflowY: 'auto',
             overflowX: 'hidden',
           }}
         >
           <Routes />
+          <Footer />
         </div>
       </>
     );

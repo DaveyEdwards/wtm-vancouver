@@ -1,4 +1,5 @@
 import * as React from 'react';
+import appConfig from '../appConfig';
 import { Link } from 'react-router-dom';
 import {
   Theme,
@@ -89,11 +90,11 @@ class AppMenuBar extends React.Component<Props, State> {
           >
             <span style={{ height: 48 }}>
               <img
-                alt={'GDG Cloud Vancouver'}
-                src={'/gdgcloud.svg'}
+                alt={appConfig.meetupName}
+                src={appConfig.logo}
                 className={classes.siteIcon}
               />
-              <span> GDG Cloud Vancouver</span>
+              <span> {appConfig.meetupName}</span>
             </span>
           </Typography>
 

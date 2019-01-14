@@ -1,10 +1,10 @@
 import * as React from 'react';
+import appConfig from '../appConfig';
 import classNames from 'classnames';
 import injectSheet from 'react-jss';
 import { Link } from 'react-router-dom';
 
 import {
-  // Avatar,
   Divider,
   Drawer,
   Hidden,
@@ -12,7 +12,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  // ListItemAvatar,
 } from '@material-ui/core';
 
 const drawerWidth = 240;
@@ -100,52 +99,9 @@ interface State {}
 class Navigation extends React.Component<Props, State> {
   state = {};
 
-  navItems = () => {
-    const navItems = [
-      {
-        type: 'BUTTON',
-        icon: 'home',
-        title: 'Home',
-        slug: `/`,
-      },
-      {
-        type: 'BUTTON',
-        icon: 'event',
-        title: 'Events',
-        slug: '/upcoming-events',
-      },
-      {
-        type: 'BUTTON',
-        icon: 'collections',
-        title: 'Photos',
-        slug: '/photos',
-      },
-      {
-        type: 'BUTTON',
-        icon: 'info',
-        title: 'About Us',
-        slug: '/about',
-      },
-      {
-        type: 'BUTTON',
-        icon: 'live_help',
-        title: 'Resources',
-        slug: '/resources',
-      },
-      {
-        type: 'BUTTON',
-        src: '/wtm.svg',
-        title: 'WomenTechmakers',
-        href: 'https://wtmgdgvancouver.com/',
-      },
-    ];
-
-    return navItems;
-  };
-
   render() {
     const { classes, showNavigation, handleNavigationToggle } = this.props;
-    const navItems = this.navItems();
+    const navItems = appConfig.navigationItems;
     return (
       <div className={classes.navigation}>
         <Hidden mdUp>
