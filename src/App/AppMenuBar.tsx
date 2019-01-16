@@ -53,7 +53,7 @@ const styles = (theme: Theme) =>
       width: 32,
       maxHeight: 32,
       float: 'left',
-      margin: '2px 8px 0px 0px',
+      margin: '-3px 8px 0px 0px',
     },
   });
 

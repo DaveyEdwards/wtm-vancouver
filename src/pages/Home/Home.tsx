@@ -75,7 +75,7 @@ class Progress extends React.Component<Props, State> {
         <Hero
           height={'640px'}
           backdrop={true}
-          img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2Fhero.jpg?alt=media&token=d2ba8252-7da2-4cb9-aa4a-42e4c19c017f"
+          img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2FIMG_20181020_112843-ANIMATION.gif?alt=media&token=11faf010-6d5c-447f-a8f7-b8a7ff9c9453"
         >
           <div className={classes.openingHeroContainer}>
             <img src={'/logo-name.png'} style={{ maxWidth: '100%' }} />
@@ -108,15 +108,12 @@ class Progress extends React.Component<Props, State> {
         <Page disablePadding={true}>
           <div style={{ textAlign: 'center', marginTop: 64 }}>
             <Typography variant="h4" color="textPrimary">
-              <b>What is GDG?</b>
+              <b>What is WTM?</b>
             </Typography>
             <br />
             <Typography variant="body1" color="textPrimary">
-              Google Developer Groups are local groups of developers who are
-              specifically interested in Google products and APIs.
-              <br />
-              GDG Cloud Vancouver holds events tailored to learning about Google
-              Cloud Platform.
+              Google's Women Techmakers program provides visibility, community,
+              and resources for women in technology.
             </Typography>
             <Button
               variant="contained"
@@ -189,11 +186,11 @@ class Progress extends React.Component<Props, State> {
         <Hero
           backdrop={true}
           height={'640px'}
-          img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2FIMG_20181020_112843-ANIMATION.gif?alt=media&token=11faf010-6d5c-447f-a8f7-b8a7ff9c9453"
+          img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2Fhero.jpg?alt=media&token=d2ba8252-7da2-4cb9-aa4a-42e4c19c017f"
         >
           <div style={{ textAlign: 'center', marginTop: '-180px' }}>
             <Typography style={{ color: 'white' }} variant="h5">
-              <b>We also have a Women Techmakers group here in Vancouver</b>
+              <b>We also have a GDG Cloud group here in Vancouver</b>
             </Typography>
             <div>
               <Button
@@ -201,10 +198,10 @@ class Progress extends React.Component<Props, State> {
                 color="primary"
                 className={classes.callToAction}
                 component={(props: any) => (
-                  <a {...props} href={'https://wtmgdgvancouver.com/'} />
+                  <a {...props} href={'https://gdgvancouver.com/'} />
                 )}
               >
-                Women Techmakers
+                GDG Cloud
               </Button>
             </div>
           </div>

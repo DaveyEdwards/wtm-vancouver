@@ -201,11 +201,7 @@ class Navigation extends React.Component<Props, State> {
                                 item.slug ? (
                                   <Link {...props} to={item.slug} />
                                 ) : (
-                                  <a
-                                    {...props}
-                                    href={item.href}
-                                    target="__blank"
-                                  />
+                                  <a {...props} href={item.href} />
                                 )
                               }
                             >

@@ -5,15 +5,16 @@ const appConfig = {
   },
   palette: {
     primary: {
-      main: '#4285F4',
+      main: '#00897b',
+      // main: '#00BFA5',
     },
     secondary: {
-      main: '#EA4335',
+      main: '#4285F4',
     },
   },
-  meetupName: 'GDG Cloud Vancouver',
+  meetupName: 'Women Techmakers Vancouver',
   meetupUrl: 'https://www.meetup.com/GDGCloudVancouver/',
-  logo: '/gdgcloud.svg',
+  logo: '/wtm.svg',
   navigationItems: [
     {
       type: 'BUTTON',
@@ -47,14 +48,31 @@ const appConfig = {
     },
     {
       type: 'BUTTON',
-      src: '/wtm.svg',
-      title: 'WomenTechmakers',
-      href: 'https://wtmgdgvancouver.com/',
+      src: '/gdgcloud.svg',
+      title: 'GDG Cloud',
+      href: 'https://gdgvancouver.com/',
     },
   ],
   aboutUsDescription:
-    'GDG Cloud Vancouver is local community-ran meetup for developers interested in resources and technology from Google Developers. We focus on Google Cloud Platform and Open Source technologies that are part of it.',
+    'Women Techmakers Vancouver (Powered by Women Techmakers Google) aims to create a platform where women can share, empower and grow as a community. ',
   organizers: [
+    {
+      name: 'Piyali Dey',
+      description:
+        'Piyali has been involved with Google Developers Group since early 2017 and has served as an organizer for both GDG Silicon Valley and GDG Cloud Vancouver. At present, she is also leading Google’s WomenTechmakers program in Vancouver, BC area. Piyali is a passionate speaker, mentor and community builder.',
+      img:
+        'https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/people%2Fpiyali2.jpg?alt=media&token=77b657c3-7847-4c2d-9456-a1ae01b3d69c',
+      actions: [
+        {
+          name: 'Twitter',
+          url: 'https://www.twitter.com/piyalidey_WTM',
+        },
+        {
+          name: 'LinkedIn',
+          url: 'https://www.linkedin.com/in/piyalidey/',
+        },
+      ],
+    },
     {
       name: 'Davey Edwards',
       description:
@@ -106,25 +124,9 @@ const appConfig = {
       ],
     },
     {
-      name: 'Piyali Dey',
-      description:
-        'Piyali has been involved with Google Developers Group since early 2017 and has served as an organizer for both GDG Silicon Valley and GDG Cloud Vancouver. At present, she is also leading Google’s WomenTechmakers program in Vancouver, BC area. Piyali is a passionate speaker, mentor and community builder.',
-      img:
-        'https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/people%2Fpiyali2.jpg?alt=media&token=77b657c3-7847-4c2d-9456-a1ae01b3d69c',
-      actions: [
-        {
-          name: 'Twitter',
-          url: 'https://www.twitter.com/piyalidey_WTM',
-        },
-        {
-          name: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/piyalidey/',
-        },
-      ],
-    },
-    {
       name: 'Samuel Baruffi',
-      description: 'Hes thinking about it...',
+      description:
+        'Samuel loves technology, he has been in the IT industry for 12+ years with experience in Infrastructure, Networking, and DevOps. For the last 4 years focusing on how to deliver fast quality code using a wide variety of tools and programming languages to apply the DevOps and Agile mindset in different corporations. Samuel is a cloud advocate, a fan of Kubernetes, microservices, serverless and of course GCP.  He loves meeting new people in the community and sharing experiences.',
       img:
         'https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/people%2Fsam.jpg?alt=media&token=24a827e5-3751-4506-baf5-fff5b3a4951e',
       actions: [
@@ -137,6 +139,10 @@ const appConfig = {
           url: 'https://github.com/samuelbaruffi',
         },
         {
+          name: 'Instagram',
+          url: 'https://www.instagram.com/samuelbaruffi/',
+        },
+        {
           name: 'LinkedIn',
           url: 'https://www.linkedin.com/in/samuelbaruffi/',
         },
@@ -146,23 +152,28 @@ const appConfig = {
   socialMedias: [
     {
       title: 'Twitter',
-      url: 'https://twitter.com/gdgvancouver',
-      src: '/src/resources/twitter',
+      url: 'https://twitter.com/GWTMVancouver',
+      iconSrc: 'twitter',
     },
     {
       title: 'Instagram',
       url: 'https://www.instagram.com/gdgcloudvancouver/',
-      src: '/src/resources/instagram',
+      iconSrc: 'instagram',
     },
     {
       title: 'LinkedIn',
       url: 'https://www.linkedin.com/company/google-developer-group-vancouver',
-      src: '/src/resources/linkedin',
+      iconSrc: 'linkedin',
+    },
+    {
+      title: 'GDG Twitter',
+      url: 'https://twitter.com/gdgvancouver',
+      iconSrc: 'twitter',
     },
     {
       title: 'Meetup',
       url: 'https://www.meetup.com/GDGCloudVancouver/',
-      src: '/src/resources/linkedin',
+      iconSrc: 'meetup',
     },
   ],
 };

@@ -64,7 +64,7 @@ class Footer extends React.Component<Props> {
               >
                 <img
                   className={classes.socialIcon}
-                  src={getSvg(social.title)}
+                  src={getSvg(social.iconSrc)}
                   height={25}
                   width={25}
                 />
