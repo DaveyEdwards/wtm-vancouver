@@ -5,7 +5,7 @@ export const meetupEventsApi = functions.https.onRequest(async (req, res) => {
   const meetupGroupName = 'GDGCloudVancouver';
 
   await request(
-    `https://api.meetup.com/${meetupGroupName}/events?&key=${
+    `https://api.meetup.com/${meetupGroupName}/upcoming_events?&key=${
       functions.config().meetup.key
     }&sign=true&photo-host=public&page=20&fields=featured_photo`,
     (error, response, body) => {

@@ -2,14 +2,14 @@ import * as React from 'react';
 import Page from '../../components/Page';
 import Spacer from '../../components/Spacer';
 import {
-  CardActions,
+  Button,
   Card,
+  CardActions,
+  CardContent,
   createStyles,
+  Grid,
   Typography,
   withStyles,
-  CardContent,
-  Button,
-  Grid,
 } from '@material-ui/core';
 
 interface Props {
@@ -179,51 +179,6 @@ class Progress extends React.Component<Props, State> {
                       )}
                     >
                       Join Discord
-                    </Button>
-                  </CardActions>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} md={6} lg={4}>
-              <Card className={classes.card}>
-                <div className={classes.imgContainer}>
-                  <img
-                    className={classes.cover}
-                    style={{
-                      maxWidth: '100%',
-                      height: '132px',
-                    }}
-                    src={
-                      'https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/icons%2Fslack-1-226535.png?alt=media&token=7aaa4b29-e18f-416d-a755-56f252169d1b'
-                    }
-                    alt={'Slack'}
-                  />
-                </div>
-                <CardContent className={classes.details}>
-                  <Typography variant="h4" color="textPrimary">
-                    <b>Slack</b>
-                  </Typography>
-                  <br />
-                  <Typography variant="body1" color="textPrimary">
-                    This is the best place to get help with Google Cloud
-                    Platform. Many of the Engineers working on the products you
-                    use can be seen here
-                  </Typography>
-                  <div className={classes.vertSpacing} />
-                  <CardActions className={classes.actions}>
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      component={(props: any) => (
-                        <a
-                          {...props}
-                          target="__blank"
-                          href={'https://gcp-slack.appspot.com/'}
-                        />
-                      )}
-                    >
-                      Join Slack
                     </Button>
                   </CardActions>
                 </CardContent>

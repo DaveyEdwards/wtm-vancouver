@@ -1,13 +1,12 @@
 import * as React from 'react';
 import appConfig from '../../appConfig';
 import getSvg from '../../resources/getSvg';
-import { Link } from 'react-router-dom';
 import { Theme } from '@material-ui/core/styles';
 import {
   Button,
   createStyles,
-  withStyles,
   Typography,
+  withStyles,
 } from '@material-ui/core';
 
 interface Props {

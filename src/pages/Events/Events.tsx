@@ -6,16 +6,16 @@ import Progress from '../../components/Progress';
 import Spacer from '../../components/Spacer';
 
 import {
-  CardActions,
+  Button,
   Card,
-  createStyles,
-  Typography,
-  withStyles,
+  CardActionArea,
+  CardActions,
   CardContent,
   CardMedia,
-  Button,
+  createStyles,
   Grid,
-  CardActionArea,
+  Typography,
+  withStyles,
 } from '@material-ui/core';
 
 interface Props {
@@ -82,6 +82,10 @@ class Events extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    this.getUpcomingEvents();
+  }
+
+  getUpcomingEvents = () => {
     fetch(appConfig.firebaseSettings.meetupCloudFunctionUrl, {
       method: 'GET',
       headers: {
@@ -94,7 +98,7 @@ class Events extends React.Component<Props, State> {
         this.setState({ events, loading: false } as any);
       })
       .catch((error: any) => console.log(error));
-  }
+  };
 
   formatDate = (date: string) => {
     return moment(date).format('MMMM Do YYYY');
@@ -132,10 +136,13 @@ class Events extends React.Component<Props, State> {
                             <a {...props} target="__blank" href={event.link} />
                           )}
                         >
-                          <CardMedia
-                            className={classes.media}
-                            image={event.featured_photo.photo_link}
-                          />
+                          {event.featured_photo &&
+                          event.featured_photo.photo_link ? (
+                            <CardMedia
+                              className={classes.media}
+                              image={event.featured_photo.photo_link}
+                            />
+                          ) : null}
                         </CardActionArea>
                         <CardContent className={classes.cardContent}>
                           <Typography variant="h5" color="textPrimary">
@@ -183,6 +190,7 @@ class Events extends React.Component<Props, State> {
               )}
             </Grid>
           )}
+
           <Spacer height={124} />
           <div style={{ textAlign: 'center' }}>
             <Typography variant="body1" color="textPrimary">

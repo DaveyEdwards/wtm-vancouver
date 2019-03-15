@@ -37,7 +37,6 @@ const styles = (theme: any) =>
     pageTitle: {
       marginBottom: theme.spacing.unit * 3,
     },
-
     card: {
       display: 'flex',
       flexDirection: 'column',
@@ -55,8 +54,9 @@ const styles = (theme: any) =>
       flex: '1 0 auto',
     },
     cover: {
-      minWidth: 212,
-      height: 256,
+      minWidth: 256,
+      backgroundSize: 'contain',
+      margin: theme.spacing.unit * 2,
     },
     smallCardCover: {
       height: 0,
@@ -85,22 +85,19 @@ class Progress extends React.Component<Props, State> {
             className={classes.pageTitle}
             color="textPrimary"
           >
-            <b>About us</b>
+            <b>Testimonials</b>
           </Typography>
           <Spacer />
-          <Typography variant="body1" color="textPrimary">
-            {appConfig.aboutUsDescription}
-          </Typography>
 
           <Spacer height={75} />
 
           <Typography variant="h4" color="textPrimary">
-            <b>Meet the Organizing Team:</b>
+            <b>Hear what our Speakers say about us:</b>
           </Typography>
 
           <Spacer />
 
-          {appConfig.organizers.map(person => {
+          {appConfig.testimonials.speakers.map(person => {
             return window.innerWidth > 680 ? (
               <Card key={person.name} className={classes.card}>
                 <div className={classes.cardPrimary}>
@@ -114,31 +111,19 @@ class Progress extends React.Component<Props, State> {
                       <Typography variant="h4" color="textPrimary">
                         <b>{person.name}</b>
                       </Typography>
+                      <Typography variant="subtitle1" color="textPrimary">
+                        {person.info}
+                      </Typography>
                       <br />
                       <Typography variant="body1" color="textPrimary">
-                        {person.description}
+                        <i>{person.description}</i>
                       </Typography>
                     </CardContent>
                   </div>
                 </div>
-                <CardActions className={classes.actions}>
-                  {person.actions.map(action => {
-                    return (
-                      <Button
-                        key={action.name}
-                        color="primary"
-                        component={(props: any) => (
-                          <a {...props} target="__blank" href={action.url} />
-                        )}
-                      >
-                        {action.name}
-                      </Button>
-                    );
-                  })}
-                </CardActions>
               </Card>
             ) : (
-              <Card style={{ marginBottom: 12 }}>
+              <Card style={{ marginBottom: 12 }} key={person.name}>
                 <CardMedia
                   className={classes.smallCardCover}
                   image={person.img}
@@ -148,104 +133,40 @@ class Progress extends React.Component<Props, State> {
                   <Typography variant="h4" color="textPrimary">
                     <b>{person.name}</b>
                   </Typography>
+                  <Typography variant="subtitle1" color="textPrimary">
+                    {person.info}
+                  </Typography>
                   <br />
                   <Typography variant="body1" color="textPrimary">
                     {person.description}
                   </Typography>
                 </CardContent>
-                <CardActions className={classes.actions}>
-                  {person.actions.map(action => {
-                    return (
-                      <Button
-                        key={action.name}
-                        color="primary"
-                        component={(props: any) => (
-                          <a {...props} target="__blank" href={action.url} />
-                        )}
-                      >
-                        {action.name}
-                      </Button>
-                    );
-                  })}
-                </CardActions>
               </Card>
             );
           })}
 
           <Typography variant="h4" color="textPrimary">
-            <b>And Our Amazing Volunteers:</b>
+            <b>Some words from our Community:</b>
           </Typography>
 
           <Spacer />
 
-          {appConfig.volunteers.map(person => {
-            return window.innerWidth > 680 ? (
+          {appConfig.testimonials.attendees.map(person => {
+            return (
               <Card key={person.name} className={classes.card}>
                 <div className={classes.cardPrimary}>
-                  <CardMedia
-                    className={classes.cover}
-                    image={person.img}
-                    title={person.name}
-                  />
                   <div className={classes.details}>
                     <CardContent>
-                      <Typography variant="h4" color="textPrimary">
+                      <Typography variant="h6" color="textPrimary">
                         <b>{person.name}</b>
                       </Typography>
                       <br />
                       <Typography variant="body1" color="textPrimary">
-                        {person.description}
+                        <i>{person.description}</i>
                       </Typography>
                     </CardContent>
                   </div>
                 </div>
-                <CardActions className={classes.actions}>
-                  {person.actions.map(action => {
-                    return (
-                      <Button
-                        key={action.name}
-                        color="primary"
-                        component={(props: any) => (
-                          <a {...props} target="__blank" href={action.url} />
-                        )}
-                      >
-                        {action.name}
-                      </Button>
-                    );
-                  })}
-                </CardActions>
-              </Card>
-            ) : (
-              <Card style={{ marginBottom: 12 }}>
-                <CardMedia
-                  className={classes.smallCardCover}
-                  image={person.img}
-                  title={person.name}
-                />
-                <CardContent>
-                  <Typography variant="h4" color="textPrimary">
-                    <b>{person.name}</b>
-                  </Typography>
-                  <br />
-                  <Typography variant="body1" color="textPrimary">
-                    {person.description}
-                  </Typography>
-                </CardContent>
-                <CardActions className={classes.actions}>
-                  {person.actions.map(action => {
-                    return (
-                      <Button
-                        key={action.name}
-                        color="primary"
-                        component={(props: any) => (
-                          <a {...props} target="__blank" href={action.url} />
-                        )}
-                      >
-                        {action.name}
-                      </Button>
-                    );
-                  })}
-                </CardActions>
               </Card>
             );
           })}

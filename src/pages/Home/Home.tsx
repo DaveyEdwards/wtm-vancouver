@@ -1,14 +1,17 @@
 import * as React from 'react';
+import appConfig from '../../appConfig';
+import getSvg from '../../resources/getSvg';
 import Hero from '../../components/Hero';
 import Page from '../../components/Page';
 import Spacer from '../../components/Spacer/Spacer';
 import { Link } from 'react-router-dom';
 import {
+  Button,
   createStyles,
+  Grid,
+  Theme,
   Typography,
   withStyles,
-  Button,
-  Theme,
 } from '@material-ui/core';
 
 interface Props {
@@ -20,6 +23,9 @@ interface Props {
     cardMedia: string;
     colorBlock: string;
     centeredTextContainer: string;
+    socialIcon: string;
+    socialButton: string;
+    iconBar: string;
   };
 }
 
@@ -58,6 +64,18 @@ const styles = (theme: Theme) =>
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
+    },
+    socialIcon: {
+      marginRight: theme.spacing.unit,
+    },
+    socialButton: {
+      color: 'white',
+      margin: theme.spacing.unit,
+    },
+    iconBar: {
+      textAlign: 'center',
+      padding: theme.spacing.unit,
+      background: theme.palette.secondary.main,
     },
   });
 
@@ -102,28 +120,58 @@ class Progress extends React.Component<Props, State> {
             </div>
           </div>
         </Hero>
-
+        <div className={classes.iconBar}>
+          {appConfig.socialMedias.map(social => {
+            return (
+              <Button
+                key={social.title}
+                variant="text"
+                color="inherit"
+                className={classes.socialButton}
+                target="__blank"
+                component={(props: any) => <a {...props} href={social.url} />}
+              >
+                <img
+                  className={classes.socialIcon}
+                  src={getSvg(social.iconSrc)}
+                  height={25}
+                  width={25}
+                />
+                {social.title}
+              </Button>
+            );
+          })}
+        </div>
         <Spacer height={120} />
 
         <Page disablePadding={true}>
           <div style={{ textAlign: 'center', marginTop: 64 }}>
             <Typography variant="h4" color="textPrimary">
-              <b>What is WTM?</b>
+              <b>Vision and Mission for WTM Vancouver:</b>
             </Typography>
             <br />
             <Typography variant="body1" color="textPrimary">
-              Google's Women Techmakers program provides visibility, community,
-              and resources for women in technology.
+              In BC, women make up only 20 % of the workforce in tech, far less
+              than the national average. This has to change and we as a group
+              want to ensure that we are doing our part to encourage the
+              incredible diversity of our Vancouver community. We have brought
+              together industry leaders, tech experts and community activists to
+              support women (and all other minorities in tech) by providing
+              content, tips, career advice and mentoring. Join our group, take
+              part in events and see the magic happen.
+              <br />
+              <br />
+              It is our mission to collaborate, learn, grow and inspire everyone
+              in navigating their careers and help them to get a sit at the
+              table. Lets start a conversation that better represent ourselves
+              because Diversity indeed makes us stronger.
             </Typography>
             <Button
               variant="contained"
               color="primary"
               className={classes.callToAction}
               component={(props: any) => (
-                <a
-                  {...props}
-                  href={'https://developers.google.com/programs/community/gdg/'}
-                />
+                <a {...props} href={'https://www.womentechmakers.com/'} />
               )}
             >
               Learn More
@@ -136,14 +184,13 @@ class Progress extends React.Component<Props, State> {
         <Hero
           backdrop={true}
           height="580px"
-          img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2Fgdg.jpg?alt=media&token=4df64f32-4373-4b82-864f-0fe4404216dc"
+          img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2Fheader-5.jpg?alt=media&token=433b1b19-54b3-4d49-bf1a-c73d0e43744f"
         />
 
         <div className={classes.colorBlock}>
           <div className={classes.centeredTextContainer}>
             <Typography variant="h5" style={{ color: 'white' }}>
-              Presenting or giving a Workshop sound interesting to you? Get in
-              touch with us!
+              Looking to Sponsor, Volunteer, speak, run a workshop?
             </Typography>
             <div>
               <Button
@@ -163,26 +210,6 @@ class Progress extends React.Component<Props, State> {
           </div>
         </div>
 
-        <div className={classes.colorBlock} style={{ background: '#DD5044' }}>
-          <div className={classes.centeredTextContainer}>
-            <Typography variant="h5" style={{ color: 'white' }}>
-              Looking for some help or wish to see previous event presentations?
-            </Typography>
-            <div>
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.callToAction}
-                component={(props: any) => (
-                  <Link {...props} to={'/resources'} />
-                )}
-              >
-                Resources
-              </Button>
-            </div>
-          </div>
-        </div>
-
         <Hero
           backdrop={true}
           height={'640px'}
@@ -190,7 +217,7 @@ class Progress extends React.Component<Props, State> {
         >
           <div style={{ textAlign: 'center', marginTop: '-180px' }}>
             <Typography style={{ color: 'white' }} variant="h5">
-              <b>We also have a GDG Cloud group here in Vancouver</b>
+              <b>Are you interested in Google Technologies?</b>
             </Typography>
             <div>
               <Button
@@ -201,7 +228,7 @@ class Progress extends React.Component<Props, State> {
                   <a {...props} href={'https://gdgvancouver.com/'} />
                 )}
               >
-                GDG Cloud
+                Google Developer Group Cloud Vancouver
               </Button>
             </div>
           </div>

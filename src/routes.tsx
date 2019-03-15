@@ -4,6 +4,7 @@ import Events from './pages/Events';
 import Home from './pages/Home';
 import Photos from './pages/Photos';
 import Resources from './pages/Resources';
+import Testimonials from './pages/Testimonials';
 import { Route, Switch } from 'react-router-dom';
 
 class Routes extends React.Component {
@@ -14,6 +15,7 @@ class Routes extends React.Component {
         <Route exact path="/about" component={About} />
         <Route exact path="/upcoming-events" component={Events} />
         <Route exact path="/photos" component={Photos} />
+        <Route exact path="/testimonials" component={Testimonials} />
         <Route exact path="/resources" component={Resources} />
         <Route component={Home} />
       </Switch>
