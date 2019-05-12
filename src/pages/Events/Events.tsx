@@ -153,7 +153,9 @@ class Events extends React.Component<Props, State> {
                             Venue:
                           </Typography>
                           <Typography variant="body1" color="textPrimary">
-                            {event.venue.name}
+                            {event.venue && event.venue.name
+                              ? event.venue.name
+                              : 'TBD'}
                           </Typography>
                           <br />
                           <Typography variant="caption" color="textPrimary">

@@ -185,10 +185,11 @@ class Progress extends React.Component<Props, State> {
           backdrop={true}
           height="580px"
           img="https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2Fheader-5.jpg?alt=media&token=433b1b19-54b3-4d49-bf1a-c73d0e43744f"
-        />
-
-        <div className={classes.colorBlock}>
-          <div className={classes.centeredTextContainer}>
+        >
+          <div
+            className={classes.centeredTextContainer}
+            style={{ textAlign: 'center' }}
+          >
             <Typography variant="h5" style={{ color: 'white' }}>
               Looking to Sponsor, Volunteer, speak, run a workshop?
             </Typography>
@@ -208,7 +209,11 @@ class Progress extends React.Component<Props, State> {
               </Button>
             </div>
           </div>
-        </div>
+        </Hero>
+
+        {/* <div className={classes.colorBlock}>
+          
+        </div> */}
 
         <Hero
           backdrop={true}

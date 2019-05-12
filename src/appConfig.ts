@@ -157,10 +157,11 @@ const appConfig = {
   ],
   volunteers: [
     {
-      name: 'Shreya Dey',
+      name: 'Shreya Sharma',
       description:
         "Shreya is a continuosly evolving marketer who is obsessed with sharing the meaningful stories behind brands with their audience. Her interests range from Google Ads and Analytics to application of Reggio-Inspired curriculum to encourage creativity among children. In her spare time, she can be found consuming science fiction and 80's music.",
-      img: '',
+      img:
+        'https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/people%2FShreya.jpg?alt=media&token=7c2029e6-e936-4aac-9c09-39508661a62e',
       actions: [
         {
           name: 'Twitter',
@@ -170,13 +171,14 @@ const appConfig = {
     },
     {
       name: 'Nayeema',
-      description: 'Coming soon...',
+      description:
+        'Nayeema is inclined to learn new things and always love to solve programming challenges.  In her spare time she spends time with her daughters regarding programming, solving puzzles and reading books.',
       img: '',
       actions: [
-        {
-          name: 'Twitter',
-          url: 'https://www.twitter.com/shreyaisms',
-        },
+        // {
+        //   name: 'Twitter',
+        //   url: 'https://www.twitter.com/shreyaisms',
+        // },
       ],
     },
   ],
