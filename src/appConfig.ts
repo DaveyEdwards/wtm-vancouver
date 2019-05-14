@@ -170,15 +170,15 @@ const appConfig = {
       ],
     },
     {
-      name: 'Nayeema',
+      name: 'Hafiza Nayeema Shad',
       description:
         'Nayeema is inclined to learn new things and always love to solve programming challenges.  In her spare time she spends time with her daughters regarding programming, solving puzzles and reading books.',
       img: '',
       actions: [
-        // {
-        //   name: 'Twitter',
-        //   url: 'https://www.twitter.com/shreyaisms',
-        // },
+        {
+          name: 'LinkedIn',
+          url: 'https://www.linkedin.com/in/hafiza-shad-36114419/',
+        },
       ],
     },
   ],
