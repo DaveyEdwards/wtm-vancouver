@@ -305,6 +305,30 @@ const appConfig = {
       },
     ],
   },
+  communityNight: {
+    heroSrc:
+      'https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/images%2FAsset%2040.png?alt=media&token=812b56a9-ff8a-47d7-a43e-936ae67f164e',
+    links: [
+      {
+        title: 'Google Form Check-in',
+        description:
+          'Get the most out of the event by allow other attendees.  Your responses are linked to your Google email so you can edit them and update them at future events without typing everything out again.',
+        url:
+          'https://docs.google.com/forms/d/e/1FAIpQLSejE80YPMB4ql7kmmrEEWMWmk_9cHMZzOdsPnS6GYi7PqiJgw/viewform?usp=sf_link',
+        iconSrc: './gform.png',
+        btnText: 'View Form',
+      },
+      {
+        title: 'People Responses Finder',
+        description:
+          'This is where you will find the people at this event you want to connect with.',
+        url:
+          'https://docs.google.com/spreadsheets/d/13yyQyWzwU7dns3Antq3zf2WhMRbpa5MB3g9cbuCdtP8/edit?usp=sharing',
+        iconSrc: './gsheet.png',
+        btnText: 'View Responses',
+      },
+    ],
+  },
 };
 
 export default appConfig;

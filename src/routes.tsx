@@ -1,5 +1,6 @@
 import * as React from 'react';
 import About from './pages/About';
+import CommunityNight from './pages/CommunityNight';
 import Events from './pages/Events';
 import Home from './pages/Home';
 import Photos from './pages/Photos';
@@ -17,6 +18,7 @@ class Routes extends React.Component {
         <Route exact path="/photos" component={Photos} />
         <Route exact path="/testimonials" component={Testimonials} />
         <Route exact path="/resources" component={Resources} />
+        <Route exact path="/community-night" component={CommunityNight} />
         <Route component={Home} />
       </Switch>
     );
