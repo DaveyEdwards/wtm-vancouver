@@ -61,8 +61,8 @@ const styles = (theme: Theme) =>
       height: 150,
     },
     smallCardCover: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9
+      height: 150,
+      backgroundSize: 'contain',
     },
     actions: {
       display: 'flex',
