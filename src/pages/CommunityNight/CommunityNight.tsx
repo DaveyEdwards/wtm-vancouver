@@ -1,6 +1,5 @@
 import * as React from 'react';
 import appConfig from '../../appConfig';
-import Hero from '../../components/Hero';
 import Page from '../../components/Page';
 import Spacer from '../../components/Spacer';
 import {
@@ -81,10 +80,16 @@ class CommunityNight extends React.Component<Props, State> {
 
     return (
       <Page>
-        <Hero
-          // height={'540px'}
-          backdrop={false}
-          img={appConfig.communityNight.heroSrc}
+        <div
+          style={{
+            minHeight: window.innerWidth > 480 ? 289 : 200,
+            width: '100%',
+            maxWidth: '100%',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundImage: `url(${appConfig.communityNight.heroSrc})`,
+          }}
         />
         <div className={classes.container}>
           <Spacer />
