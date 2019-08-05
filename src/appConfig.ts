@@ -84,7 +84,7 @@ const appConfig = {
       description:
         'Davey is obsessed with learning and building new things.  His primary focus right now is excelling his ability to build planetary scale applications with Google Cloud Platform, React, Apollo, and GraphQL using TypeScript.  Some other interests include video creation, biohacking, 3d modeling, physically building things, and manufacturing.',
       img:
-        'https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/people%2Fdaveypart2.jpg?alt=media&token=4ceeb18f-d617-4b49-8942-f32590148192',
+        'https://firebasestorage.googleapis.com/v0/b/gdgvancouver-e7a28.appspot.com/o/people%2FUntitled-1%400%2C5x.png?alt=media&token=628d77bf-eed2-4c21-b4d7-81b1c6118dce',
       actions: [
         {
           name: 'Twitter',
